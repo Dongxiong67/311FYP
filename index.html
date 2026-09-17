@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-theme="light">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1188,8 +1188,9 @@ function updateThemeIcons(){
   document.querySelector('.sun').style.display = dark ? 'none' : 'block';
   document.querySelector('.moon').style.display = dark ? 'block' : 'none';
 }
-const savedTheme = localStorage.getItem('dx3906-theme');
-if(savedTheme){ document.documentElement.setAttribute('data-theme', savedTheme); }
+// Default to light theme on every load (ignore any stored dark preference)
+document.documentElement.setAttribute('data-theme', 'light');
+updateThemeIcons();
 
 function toggleLang(){
   currentLang = currentLang === 'zh' ? 'en' : 'zh';
